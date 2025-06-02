@@ -6,7 +6,9 @@ use std::{
     collections::HashMap,
     fs::File,
     io::{self, BufRead},
+    sync::Arc,
 };
+use tokio::sync::Semaphore;
 
 mod downloader;
 mod models;
@@ -40,6 +42,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         serde_yaml::from_reader(credentials_file).expect("Cannot parse email or password.");
     let login = credentials.login;
     let password = credentials.password;
+    let max_concurrent_downloads = credentials.max_concurrent_downloads;
 
     let mut login_params = HashMap::new();
     login_params.insert("login", login);
@@ -52,7 +55,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     if login_response.status().is_success() {
         let login_response_deserialized: ResponseData =
-            serde_json::from_str(&login_response.text().await?).expect("Cannot parse email or password from login response. Maybe login failed.");
+            serde_json::from_str(&login_response.text().await?)
+                .expect("Cannot parse email or password from login response. Maybe login failed.");
         // println!("Token: {:?}", login_response_deserialized.response.token);
 
         let file_list = "files.txt";
@@ -60,6 +64,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .expect("files.txt is missing. Please create the file and include your download link");
         let reader = io::BufReader::new(file);
 
+        let semaphore = Arc::new(Semaphore::new(max_concurrent_downloads)); // Limit concurrent tasks
         let mut handles = vec![];
 
         // Iterate over lines in the file and spawn async tasks
@@ -70,9 +75,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let token = login_response_deserialized.response.token.clone();
             let url = line.clone();
             let mp = mp.clone();
+            let permit = semaphore.clone();
 
             // Spawn an async task for each file download
             let handle = tokio::spawn(async move {
+                // Acquire a permit
+                let _permit = permit.acquire().await.unwrap();
                 if let Err(e) = download_file(client, token, url, mp).await {
                     println!("Error downloading file: {}", e);
                 }
