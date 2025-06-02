@@ -3,7 +3,15 @@
 
 This project allows you to download files from Rapidgator using a premium account with blazing speed and concurrency, leveraging Rust's performance and safety.
 
-## Video Demo
+## 🔨 Prebuilt Binaries
+
+| Platform | File | Download Link |
+|----------|------|----------------|
+| Windows (x86_64) | `rapidgator-downloader-rs-v0.1.0-windows-x86_64-release.zip` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.1.0/rapidgator-downloader-rs-v0.1.0-windows-x86_64-release.zip) |
+| Linux (x86_64) | `rapidgator-downloader-rs-v0.1.0-x86_64-unknown-linux-gnu-release.tar.gz` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.1.0/rapidgator-downloader-rs-v0.1.0-x86_64-unknown-linux-gnu-release.tar.gz) |
+
+
+## 🎥 Video Demo
 [![Watch the video](https://img.youtube.com/vi/Zm0i67-xFrM/0.jpg)](https://youtu.be/Zm0i67-xFrM)
 
 
