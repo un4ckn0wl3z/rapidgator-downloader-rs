@@ -3,6 +3,10 @@
 
 This project allows you to download files from Rapidgator using a premium account with blazing speed and concurrency, leveraging Rust's performance and safety.
 
+## Video Demo
+[![Watch the video](https://img.youtube.com/vi/Zm0i67-xFrM/0.jpg)](https://youtu.be/Zm0i67-xFrM)
+
+
 
 ## ⚙️ Setup
 
