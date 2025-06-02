@@ -30,7 +30,7 @@ password: "passw0rd1shere"
 Replace with your actual Rapidgator premium account credentials.
 
 ### 2. Create a download list
-Create a file named files.txt in the root directory. Add one Rapidgator URL per line (support multi-files with multiple lines):
+Create a file named `files.txt` in the root directory. Add one Rapidgator URL per line (support multi-files with multiple lines):
 
 ```txt
 https://rapidgator.net/file/6bb392de829eaa4ef3fc73665b61a777/ProgrammingRust3rdEdition.Sanet.st.zip.html
