@@ -7,8 +7,8 @@ This project allows you to download files from Rapidgator using a premium accoun
 
 | Platform | File | Download Link |
 |----------|------|----------------|
-| Windows (x86_64) | `rapidgator-downloader-rs-v0.1.0-windows-x86_64-release.zip` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.1.0/rapidgator-downloader-rs-v0.1.0-windows-x86_64-release.zip) |
-| Linux (x86_64) | `rapidgator-downloader-rs-v0.1.0-x86_64-unknown-linux-gnu-release.tar.gz` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.1.0/rapidgator-downloader-rs-v0.1.0-x86_64-unknown-linux-gnu-release.tar.gz) |
+| Windows (x86_64) | `rapidgator-downloader-rs-v0.1.0-windows-x86_64-release.zip` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.2.0/rapidgator-downloader-rs-v0.2.0-windows-x86_64-release.zip) |
+| Linux (x86_64) | `rapidgator-downloader-rs-v0.1.0-x86_64-unknown-linux-gnu-release.tar.gz` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.2.0/rapidgator-downloader-rs-v0.2.0-x86_64-unknown-linux-gnu-release.tar.gz) |
 
 
 ## 🎥 Video Demo
@@ -25,6 +25,7 @@ Create a file named `config.yaml` in the root directory with the following struc
 ```yaml
 login: "404emailnotfound@internet.fail"
 password: "passw0rd1shere"
+max_concurrent_downloads: 5
 ```
 
 Replace with your actual Rapidgator premium account credentials.
