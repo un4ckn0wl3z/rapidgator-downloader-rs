@@ -20,7 +20,7 @@ pub struct InnerFileDownloadResponseData {
     pub download_url: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Credentials {
     pub login: String,
     pub password: String,
