@@ -55,6 +55,8 @@ The program will:
 
 - Download the files concurrently
 
+- Concurrency limits
+
 ## 🛡 Disclaimer
 This tool is for educational purposes only. You are responsible for complying with Rapidgator’s terms of service. Do not use this tool to download or distribute pirated or unauthorized content.
 
