@@ -52,7 +52,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     if login_response.status().is_success() {
         let login_response_deserialized: ResponseData =
-            serde_json::from_str(&login_response.text().await?).unwrap();
+            serde_json::from_str(&login_response.text().await?).expect("Cannot parse email or password from login response. Maybe login failed.");
         // println!("Token: {:?}", login_response_deserialized.response.token);
 
         let file_list = "files.txt";
