@@ -52,7 +52,7 @@ The program will:
 
 - Authenticate with Rapidgator using your premium credentials
 
-- Parse each URL from files.txt
+- Parse each URL from `files.txt`
 
 - Download the files concurrently
 
