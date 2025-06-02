@@ -1,10 +1,8 @@
 # rapidgator-downloader-rs
-
 🚀 **The fastest Rapidgator premium account downloader written in Rust.**
 
 This project allows you to download files from Rapidgator using a premium account with blazing speed and concurrency, leveraging Rust's performance and safety.
 
----
 
 ## ⚙️ Setup
 
@@ -46,3 +44,6 @@ The program will:
 
 ## 🛡 Disclaimer
 This tool is for educational purposes only. You are responsible for complying with Rapidgator’s terms of service. Do not use this tool to download or distribute pirated or unauthorized content.
+
+## LICENSE
+WTFPL © [un4ckn0wl3z](https://github.com/un4ckn0wl3z)
