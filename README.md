@@ -1,0 +1,44 @@
+# rapidgator-downloader-rs
+
+🚀 **The fastest Rapidgator premium account downloader written in Rust.**
+
+This project allows you to download files from Rapidgator using a premium account with blazing speed and concurrency, leveraging Rust's performance and safety.
+
+---
+
+## ⚙️ Setup
+
+### 1. Create a config file
+
+Create a file named `config.yaml` in the root directory with the following structure:
+
+```yaml
+login: "404emailnotfound@internet.fail"
+password: "passw0rd1shere"
+```
+
+Replace with your actual Rapidgator premium account credentials.
+
+### 2. Create a download list
+Create a file named files.txt in the root directory. Add one Rapidgator URL per line:
+
+```txt
+https://rapidgator.net/file/6bb392de829eaa4ef3fc73665b61a777/ProgrammingRust3rdEdition.Sanet.st.zip.html
+```
+
+## ▶️ Setup
+To run the downloader:
+
+```bash
+cargo run --release
+```
+The program will:
+
+- Authenticate with Rapidgator using your premium credentials
+
+- Parse each URL from files.txt
+
+- Download the files concurrently
+
+## 🛡 Disclaimer
+This tool is for educational purposes only. You are responsible for complying with Rapidgator’s terms of service. Do not use this tool to download or distribute pirated or unauthorized content.
