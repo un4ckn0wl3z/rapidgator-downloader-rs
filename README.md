@@ -26,11 +26,15 @@ Create a file named files.txt in the root directory. Add one Rapidgator URL per 
 https://rapidgator.net/file/6bb392de829eaa4ef3fc73665b61a777/ProgrammingRust3rdEdition.Sanet.st.zip.html
 ```
 
-## ▶️ Setup
+## ▶️ Usage
 To run the downloader:
 
 ```bash
 cargo run --release
+```
+or
+```bash
+rapidgator-downloader-rs.exe
 ```
 The program will:
 
