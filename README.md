@@ -17,7 +17,6 @@ This project allows you to download files from Rapidgator using a premium accoun
 [![Watch the video](https://img.youtube.com/vi/Zm0i67-xFrM/0.jpg)](https://youtu.be/Zm0i67-xFrM)
 
 
-
 ## ⚙️ Setup
 
 ### 1. Create a config file
