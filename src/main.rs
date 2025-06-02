@@ -24,7 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
  / , _/ (_ /___/ // / /_/ / |/ |/ /    / /__/ /_/ / __ |/ // / _// , _/
 /_/|_|\___/   /____/\____/|__/|__/_/|_/____/\____/_/ |_/____/___/_/|_| 
                                                                        
-    Develoepr: un4ckn0wl3z
+    Developer: un4ckn0wl3z
     https://github.com/un4ckn0wl3z 
     "#
     .green();
