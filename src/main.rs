@@ -104,7 +104,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             if !has_failed.load(Ordering::SeqCst) {
                 "All files have been downloaded.".green()
             } else {
-                "Not all files were downloaded; some succeeded.".red()
+                "Not all files were downloaded; some succeeded. Please check error.log for more detail.".red()
             }
         );
     } else {

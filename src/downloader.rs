@@ -16,7 +16,7 @@ pub async fn download_file(
             .create(true)
             .append(true)
             .open("error.log")?;
-        writeln!(file, "{}: {}", chrono::Local::now().to_rfc3339(), error_msg)?;
+        writeln!(file, "{}: [DOWNLOAD_FAIL] -> {}", chrono::Local::now().to_rfc3339(), error_msg)?;
         Ok(())
     }
 
