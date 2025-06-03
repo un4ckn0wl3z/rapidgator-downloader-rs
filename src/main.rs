@@ -10,11 +10,12 @@ use std::{
 };
 use tokio::sync::Semaphore;
 
+use crate::rg_endpoint::RG_LOGIN_URL;
+
 mod downloader;
 mod models;
+mod rg_endpoint;
 mod url_parser;
-
-const RG_LOGIN_URL: &str = "https://rapidgator.net/api/v2/user/login";
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

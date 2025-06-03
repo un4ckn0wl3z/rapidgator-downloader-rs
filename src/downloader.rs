@@ -1,10 +1,8 @@
-use crate::models::FileDownloadResponseData;
 use crate::url_parser::extract_file_info;
+use crate::{models::FileDownloadResponseData, rg_endpoint::RG_DOWNLOAD_URL};
 use colored::Colorize;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use std::{collections::HashMap, fs::File, io::Write};
-
-pub const RG_DOWNLOAD_URL: &str = "https://rapidgator.net/api/v2/file/download";
 
 pub async fn download_file(
     client: reqwest::Client,
