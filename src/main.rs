@@ -6,7 +6,10 @@ use std::{
     collections::HashMap,
     fs::File,
     io::{self, BufRead},
-    sync::Arc,
+    sync::{
+        Arc,
+        atomic::{AtomicBool, Ordering},
+    },
 };
 use tokio::sync::Semaphore;
 
@@ -30,7 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     "#
     .green();
     println!(
-        "{banner} version: {}{}",
+        "{banner} version: {}{} \n",
         "v".green(),
         env!("CARGO_PKG_VERSION").green()
     );
@@ -67,6 +70,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let semaphore = Arc::new(Semaphore::new(max_concurrent_downloads)); // Limit concurrent tasks
         let mut handles = vec![];
+        let has_failed = Arc::new(AtomicBool::new(false));
 
         // Iterate over lines in the file and spawn async tasks
         for line_result in reader.lines() {
@@ -77,6 +81,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let url = line.clone();
             let mp = mp.clone();
             let permit = semaphore.clone();
+            let has_failed = Arc::clone(&has_failed);
 
             // Spawn an async task for each file download
             let handle = tokio::spawn(async move {
@@ -84,6 +89,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 let _permit = permit.acquire().await.unwrap();
                 if let Err(e) = download_file(client, token, url, mp).await {
                     println!("Error downloading file: {}", e);
+                    has_failed.store(true, Ordering::SeqCst);
                 }
             });
             handles.push(handle);
@@ -93,7 +99,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         for handle in handles {
             handle.await?;
         }
-        println!("{}", "All files downloaded".green());
+        println!(
+            "\n{}",
+            if !has_failed.load(Ordering::SeqCst) {
+                "All files have been downloaded.".green()
+            } else {
+                "Not all files were downloaded; some succeeded.".red()
+            }
+        );
     } else {
         panic!("Failed to login: {}", login_response.status());
     }
