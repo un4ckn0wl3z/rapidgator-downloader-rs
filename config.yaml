@@ -1,3 +1,4 @@
 login: "404emailnotfound@internet.fail"
 password: "passw0rd1shere"
 max_concurrent_downloads: 5
+target_dowload_path: "download"

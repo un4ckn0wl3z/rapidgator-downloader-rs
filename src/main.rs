@@ -47,6 +47,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let login = credentials.login;
     let password = credentials.password;
     let max_concurrent_downloads = credentials.max_concurrent_downloads;
+    let target_dowload_path = credentials.target_dowload_path;
 
     let mut login_params = HashMap::new();
     login_params.insert("login", login);
@@ -82,12 +83,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let mp = mp.clone();
             let permit = semaphore.clone();
             let has_failed = Arc::clone(&has_failed);
+            let target_dowload_path = target_dowload_path.clone();
 
             // Spawn an async task for each file download
             let handle = tokio::spawn(async move {
                 // Acquire a permit
                 let _permit = permit.acquire().await.unwrap();
-                if let Err(e) = download_file(client, token, url, mp).await {
+                if let Err(e) = download_file(target_dowload_path, client, token, url, mp).await {
                     println!("Error downloading file: {}", e);
                     has_failed.store(true, Ordering::SeqCst);
                 }

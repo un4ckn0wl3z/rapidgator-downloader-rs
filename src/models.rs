@@ -25,4 +25,5 @@ pub struct Credentials {
     pub login: String,
     pub password: String,
     pub max_concurrent_downloads: usize,
+    pub target_dowload_path: String,
 }

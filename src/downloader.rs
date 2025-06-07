@@ -2,9 +2,12 @@ use crate::url_parser::extract_file_info;
 use crate::{models::FileDownloadResponseData, rg_endpoint::RG_DOWNLOAD_URL};
 use colored::Colorize;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
+use std::path::Path;
 use std::{collections::HashMap, fs::File, io::Write};
+use tokio::fs;
 
 pub async fn download_file(
+    target_dowload_path: String,
     client: reqwest::Client,
     token: String,
     url: String,
@@ -16,7 +19,12 @@ pub async fn download_file(
             .create(true)
             .append(true)
             .open("error.log")?;
-        writeln!(file, "{}: [DOWNLOAD_FAIL] -> {}", chrono::Local::now().to_rfc3339(), error_msg)?;
+        writeln!(
+            file,
+            "{}: [DOWNLOAD_FAIL] -> {}",
+            chrono::Local::now().to_rfc3339(),
+            error_msg
+        )?;
         Ok(())
     }
 
@@ -62,13 +70,14 @@ pub async fn download_file(
             );
             pb.set_message(format!("Downloading {}", url));
             let pb = mp.add(pb);
-
+            fs::create_dir_all(&target_dowload_path).await?;
             // Send GET request to download the file
             let mut response = client.get(download_url).send().await?;
-            let mut file = match File::create(&filename) {
+            let file_path = Path::new(&target_dowload_path).join(filename);
+            let mut file = match File::create(&file_path) {
                 Ok(file) => file,
                 Err(e) => {
-                    let error_msg = format!("Failed to create file {}: {}", filename, e);
+                    let error_msg = format!("Failed to create file {:#?}: {}", file_path, e);
                     log_error_to_file(&error_msg)?;
                     println!("{}", error_msg.red());
                     return Err(e.into());
