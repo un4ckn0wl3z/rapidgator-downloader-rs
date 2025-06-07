@@ -27,6 +27,7 @@ Create a file named `config.yaml` in the root directory with the following struc
 login: "404emailnotfound@internet.fail"
 password: "passw0rd1shere"
 max_concurrent_downloads: 5
+target_dowload_path: "download"
 ```
 
 Replace with your actual Rapidgator premium account credentials.
