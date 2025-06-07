@@ -9,8 +9,8 @@ This project allows you to download files from Rapidgator using a premium accoun
 
 | Platform | File | Download Link |
 |----------|------|----------------|
-| Windows (x86_64) | `rapidgator-downloader-rs-v0.3.0-windows-x86_64-release.zip` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.3.0/rapidgator-downloader-rs-v0.3.0-windows-x86_64-release.zip) |
-| Linux (x86_64) | `rapidgator-downloader-rs-v0.3.0-x86_64-unknown-linux-gnu-release.tar.gz` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.3.0/rapidgator-downloader-rs-v0.3.0-x86_64-unknown-linux-gnu-release.tar.gz) |
+| Windows (x86_64) | `rapidgator-downloader-rs-v0.4.0-windows-x86_64-release.zip` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.4.0/rapidgator-downloader-rs-v0.4.0-windows-x86_64-release.zip) |
+| Linux (x86_64) | `rapidgator-downloader-rs-v0.4.0-x86_64-unknown-linux-gnu-release.tar.gz` | [Download](https://github.com/un4ckn0wl3z/rapidgator-downloader-rs/releases/download/v0.4.0/rapidgator-downloader-rs-v0.4.0-x86_64-unknown-linux-gnu-release.tar.gz) |
 
 
 ## 🎥 Video Demo
